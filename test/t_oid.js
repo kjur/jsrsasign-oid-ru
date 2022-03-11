@@ -4,7 +4,7 @@ require('../lib/index.js').addon(rs);
 
 var oids = {
     "Russian Federation": "1.2.643",
-    "Russian Government?": "1.2.643.100",
+    "Russian Government": "1.2.643.100",
 
     "OGRN":  "1.2.643.100.1", // RFC4491bis DN, main state registration
     "SNILS": "1.2.643.100.3", // RFC4491bis DN, individual insurance account
@@ -28,6 +28,8 @@ var oids = {
     "gost3410-12-512": "1.2.643.7.1.1.1.2", // RFC4491bis sign
     "sd-gost3410-12-256": "1.2.643.7.1.1.3.2", // RFC4491bis signwithdigest
     "sd-gost3410-12-512": "1.2.643.7.1.1.3.3", // RFC4491bis signwithdigest
+    "gost3410-2001-CryptoPro-XchA-ParamSet": "1.2.643.2.2.36.0", // RFC4357
+    "gost3410-2001-CryptoPro-XchB-ParamSet": "1.2.643.2.2.36.1", // RFC4357
 };
 
 function addon(jsrsasign) {

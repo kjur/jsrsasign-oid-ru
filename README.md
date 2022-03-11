@@ -24,5 +24,8 @@ console.log(JSON.stringify(jsrsasign.ASN1HEX.parse(h), null, " "));
 ```
 
 ## Reference
-none
+- [RFC 4357 Additional Cryptographic Algorithms for Use with GOST 28147-89, GOST R 34.10-94, GOST R 34.10-2001, and GOST R 34.11-94 Algorithms](https://datatracker.ietf.org/doc/html/rfc4357)
+- [I-D RFC 4491bis Using GOST R 34.10-2012 and GOST R 34.11-2012 algorithms with the Internet X.509 Public Key Infrastructure](https://datatracker.ietf.org/doc/html/draft-deremin-rfc4491-bis-01)
+
+
 
