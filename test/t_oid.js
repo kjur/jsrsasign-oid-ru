@@ -1,0 +1,47 @@
+var assert = require('assert');
+var rs = require("jsrsasign");
+require('../lib/index.js').addon(rs);
+
+var oids = {
+    "Russian Federation": "1.2.643",
+    "Russian Government?": "1.2.643.100",
+    "OGRN": "1.2.643.100.1",
+    "TIN":  "1.2.643.3.131.1.1",
+    "EP class KS1": "1.2.643.100.113.1",
+    "EP class KS2": "1.2.643.100.113.2",
+    "EP class KS3": "1.2.643.100.113.3",
+    "EP class KV1": "1.2.643.100.113.4",
+    "EP class KV2": "1.2.643.100.113.5",
+
+    "owner eSig tool": "1.2.643.100.111",
+    "eSig tools and publisher CA": "1.2.643.100.112"
+};
+
+function addon(jsrsasign) {
+    jsrsasign.KJUR.asn1.x509.OID.registerOIDs(oids);
+}
+
+exports.addon = addon;
+
+
+describe("Russian OIDs", function() {
+    describe("KJUR.asn1.x509.OID", function() {
+	var OID = rs.KJUR.asn1.x509.OID;
+	var name2oid = OID.name2oid;
+	var equal = assert.equal;
+
+        it('existing sha256', function() {
+            equal("2.16.840.1.101.3.4.2.1", name2oid("sha256"));
+        });
+
+	for (var name in oids) {
+	    it("name2oid " + name,
+	       function() {equal(oids[name], OID.name2oid(name));});
+	}
+
+	for (var name in oids) {
+	    it("oid2name " + name,
+	       function() {equal(name, OID.oid2name(oids[name]));});
+	}
+    });
+});
